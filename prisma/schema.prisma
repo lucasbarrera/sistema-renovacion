@@ -1,0 +1,93 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../prisma/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Personal {
+  id         Int          @id @default(autoincrement())
+  email      String       @unique
+  name       String?
+  lastName   String?
+  dni        String?
+  address    String?
+  phone      String?
+  shiftId    Int?
+  shift      Shift?       @relation(fields: [shiftId], references: [id])
+  roleId     Int?
+  role       Role?        @relation(fields: [roleId], references: [id])
+  teamId     Int?
+  team       Team?        @relation(fields: [teamId], references: [id])
+  trainings  Trainings[]
+  assistance Assistance[]
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+}
+
+model Team {
+  id        Int        @id @default(autoincrement())
+  name      String
+  members   Personal[]
+  projects  Projects[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Role {
+  id        Int        @id @default(autoincrement())
+  name      String
+  personal  Personal[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Shift {
+  id        Int        @id @default(autoincrement())
+  name      String
+  startTime String
+  endTime   String
+  personal  Personal[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Trainings {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String?
+  managerId   Int?
+  manager     Personal? @relation(fields: [managerId], references: [id])
+  url         String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Assistance {
+  id           Int       @id @default(autoincrement())
+  entryTime    DateTime
+  exitTime     DateTime?
+  personalId   Int
+  personal     Personal  @relation(fields: [personalId], references: [id])
+  observations String?
+}
+
+model Projects {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  teamId      Int
+  team        Team     @relation(fields: [teamId], references: [id])
+  documents   String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
