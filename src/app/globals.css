@@ -1,26 +1,145 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* estilos de componenetes fijos de la pagina */
+
+.header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1rem;
+    background-color: #e7d3d4;
+    height: 8vh;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.navbar{
+    display: flex;
+    background-color: #bebdbd;
+    padding: 0.125rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-evenly;
+    height: 2rem;
+    align-items: center;
+   .link{
+    text-align: center;
+    width: 10rem;
+    color: black;
+    font-size: 1.2rem;
+    height: fit-content;
+    text-decoration: none;
+    &:hover{
+        background-color: #575656;
+        border-radius: 0.75rem;
+        padding: 0.25rem 0.50rem;
+        }
+    }
+}
+.footer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute; 
+    bottom: 0;
+    width: 100%;
+    height: 2hv;
+    background-color: #a3a1a2;
+    color: black;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/*estilos de landing page*/
+
+
+
+.langing-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #f3e5e6;
+}
+.login-form{
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; 
+    background-color: #e7d3d4; 
+    padding: 1rem; 
+    border-radius: 0.75rem; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    width: 20rem;
+    .title-login{
+        text-align: center;
+        margin-bottom: 1rem; 
+        font-size: 1.5rem; 
+    }
+    .input-login{
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 0.375rem;
+        font-size: 1rem;
+    }
+    .button-login{
+        background-color: #a3a1a2;
+        color: white;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 0.75rem;
+        font-size: 1rem;
+        cursor: pointer;
+        &:hover{
+            background-color: #8e8c8d;
+        }
+    }
+}
+
+
+/* estilos de la pagina personal */
+.personal-page{
+    position: absolute;
+    right: 50%;
+    top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #f3e5e6;
+    font-size: 1.5rem; 
+}
+.side-bar{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #e7d3d4;
+    padding: 1rem;
+    height: 90vh;
+    width: 10rem; 
+    
+    .side-link{
+        text-align: center;
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        color: black;
+        text-decoration: none;
+        font-size: 1.2rem;
+        &:hover{
+            background-color: #bebdbd;
+            border-radius: 0.75rem;
+        }
+    }
+}
+
+
+.add-personal{
+    position: absolute;
+    top: 100px;
+    right: 50%;
+    padding: 0.75rem; 
+    font-size: 1rem; 
+    margin: 1rem auto;
 }

@@ -1,9 +1,9 @@
 
 function PersonalPage() {
-
-
     return (
-        <h3 className=''>Gestion de Personal</h3>
+        <div className="personal-page">
+            <p>pagina de gestion de personal</p>
+        </div>
     )
 }
 

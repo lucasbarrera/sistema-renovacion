@@ -17,6 +17,7 @@ datasource db {
 model Personal {
   id         Int          @id @default(autoincrement())
   email      String       @unique
+  password   String?
   name       String?
   lastName   String?
   dni        String?

@@ -10,3 +10,4 @@ export type personal = {
   shiftId   :number 
   roleId    :number
 }
+

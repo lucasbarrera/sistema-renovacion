@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "@/app/globals.css";
-import { Footer, Header, NavBar } from "@/app/components";
 import PersonalNavBar from "./PersonalNavBar";
+import "../globals.css";
 const geistSans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],
@@ -14,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "La Renovación | Gestion de Personal",
+    title: "La Renovación | Sistema de Gestión",
     description: "Sistema de Gestión de La Renovación",
 };
 
